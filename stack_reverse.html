@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Script 2.2</title>
+<link href="../css/global.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+
+</script>
+</head>
+
+<body id="twoCol">
+<script>
+function print_array(s1, s2, s3) {
+        document.write('<p>s1: ' + s1.toString() + '</p>');
+        document.write('<p>s2: ' + s2.toString() + '</p>');
+        // document.write('<p>s3: ' + s3.toString() + '</p>');
+        document.write('<p>-------------</p>');
+}
+
+function reverse_array(s1, s2, s3) {
+    var n = s1.length;
+    var i, step;
+
+    for (i = 0; i < n - 1; i++) {
+
+        /***********************************************************************
+         * Step 1
+         */
+        while (s1.length > 1)
+            s2.push(s1.pop());
+
+        step = 1 ; document.write('<p>[i=' + i + ']: Afer Step ' + step + '</p>');
+        print_array(s1, s2, s3);
+
+        s3.push(s1.pop());
+
+        /***********************************************************************
+         * Step 2
+         */
+        while (s2.length > i)
+            s1.push(s2.pop());
+
+        step = 2 ; document.write('<p>[i=' + i + ']: Afer Step ' + step + '</p>');
+        print_array(s1, s2, s3);
+
+        /***********************************************************************
+         * Step 3
+         */
+        s1.push(s3.pop());
+
+        step = 3 ; document.write('<p>[i=' + i + ']: Afer Step ' + step + '</p>');
+        print_array(s1, s2, s3);
+
+        /***********************************************************************
+         * Step 4
+         */
+        while (s2.length > 0)
+            s1.push(s2.pop());
+
+        step = 4 ; document.write('<p>[i=' + i + ']: Afer Step ' + step + '</p>');
+        print_array(s1, s2, s3);
+    }
+}
+</script>
+<div id="container">
+  <div id="banner"><img src="../images/banner.png" alt="Quis Nostrud" width="760" height="65"><span id="badge"><a href="http://www.sawmac.com/missing/js/"></a></span></div>
+
+  <div id="contentWrap">
+  <div id="main">
+  <h1>Using a Variable, Part II</h1>
+  <script type="text/javascript">
+    var s1 = ['1', '2', '3', '4'];
+    var s2 = [];
+    var s3 = [];
+
+    document.write('<p>' + s1.toString() + '</p>');
+    // s1.reverse();
+    reverse_array(s1, s2, s3);
+    document.write('<p>' + s1.toString() + '</p>');
+  </script>
+  </div>
+  <div id="sidebar">
+    <h2>Script 2.2</h2>
+  </div>
+  </div>
+
+<div id="footer"><em>&#8220;Building Interactive Web Sites with JavaScript&#8221;</em></div>
+</div>
+</body>
+</html>
